@@ -11,7 +11,8 @@ sudo echo "192.168.42.111  ayoubSW" >> /etc/hosts
 
 curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--node-ip=192.168.42.110 --flannel-iface=eth1 --write-kubeconfig-mode=644" sh -
 echo $(sudo cat /var/lib/rancher/k3s/server/node-token) > /vagrant/k3s_token
-
+cd /vagrant
+kubectl create configmap mysite-html --from-file index.html
 SCRIPT
 
 $worker_config = <<-SCRIPT
